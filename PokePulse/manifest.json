@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "PokéPulse HUD — Community & Gameplay Edition",
+  "version": "3.0.0",
+  "description": "Overlay QoL aislado para gameplays y comunidad: teclado mecánico 3D, calculadora de tipos ×1.6/×2.4, favoritos de build, pity tracker 0/70 y calculador de coraza 70%.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://pokesurvivor.com/*",
+    "https://www.pokesurvivor.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PokéPulse HUD"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://pokesurvivor.com/*",
+        "https://www.pokesurvivor.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ]
+}

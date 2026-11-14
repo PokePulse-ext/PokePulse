@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>PokéPulse HUD v3.0</title>
+  <style>
+    body {
+      margin: 0; padding: 13px 14px; width: 320px;
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: #0f172a; color: #f1f5f9; font-size: 12px;
+    }
+    h1 { font-size: 14px; margin: 0 0 2px 0; color: #38bdf8; }
+    .sub { font-size: 11px; color: #94a3b8; margin-bottom: 8px; }
+    .section-title {
+      margin: 10px 0 4px 0; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase; color: #60a5fa;
+    }
+    .row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 4.5px 0; border-bottom: 1px solid rgba(148,163,184,0.13); cursor: pointer;
+    }
+    .row:last-of-type { border-bottom: none; }
+    input[type="checkbox"] { width: 15px; height: 15px; accent-color: #38bdf8; cursor: pointer; }
+    input[type="range"] { width: 110px; accent-color: #38bdf8; cursor: pointer; }
+    select {
+      background: #1e293b; color: #f1f5f9;
+      border: 1px solid rgba(148,163,184,0.3);
+      border-radius: 5px; padding: 3px 6px; font-size: 11px;
+    }
+    button {
+      margin-top: 8px; width: 100%; padding: 7px; border-radius: 6px;
+      border: 1px solid rgba(148,163,184,0.28);
+      background: #1e293b; color: #e2e8f0; font-size: 11.5px; cursor: pointer;
+    }
+    button:hover { background: #334155; }
+    .keys { margin-top: 9px; font-size: 10.5px; color: #94a3b8; line-height: 1.45; }
+  </style>
+</head>
+<body>
+  <h1>PokéPulse HUD v3.0</h1>
+  <div class="sub">Edición Comunidad · 100% aislado y seguro</div>
+
+  <div class="section-title">Teclado en pantalla (Gameplays)</div>
+  <label class="row"><span>Mostrar teclado mecánico 3D</span><input type="checkbox" id="keysEnabled" /></label>
+  <div class="row">
+    <span>Diseño</span>
+    <select id="keysMode">
+      <option value="wasd_skills">WASD + 1–8</option>
+      <option value="both">WASD + Flechas + 1–8</option>
+      <option value="wasd">Solo WASD + Espacio</option>
+      <option value="arrows">Solo Flechas + Espacio</option>
+    </select>
+  </div>
+  <label class="row"><span>Mostrar clics LMB / RMB</span><input type="checkbox" id="keysMouse" /></label>
+  <label class="row"><span>Mostrar KPS e historial</span><input type="checkbox" id="keysKps" /></label>
+  <div class="row">
+    <span>Tamaño teclado (<span id="keysScaleVal">100</span>%)</span>
+    <input type="range" id="keysScale" min="75" max="135" step="5" />
+  </div>
+
+  <div class="section-title">Herramientas de Comunidad</div>
+  <label class="row"><span>HUD + Cronómetro + Build fijada</span><input type="checkbox" id="hudEnabled" /></label>
+  <label class="row"><span>Modo compacto HUD</span><input type="checkbox" id="compactMode" /></label>
+  <label class="row"><span>Calculadora Tipos (×1.6 / ×2.4)</span><input type="checkbox" id="typeChartOpen" /></label>
+  <label class="row"><span>Favoritos / Pity / Coraza 70%</span><input type="checkbox" id="communityOpen" /></label>
+  <label class="row"><span>Avisos en minutos 5, 10, 15, 20</span><input type="checkbox" id="milestoneAlerts" /></label>
+
+  <div class="section-title">Estilo</div>
+  <div class="row">
+    <span>Tema de color</span>
+    <select id="uiTheme">
+      <option value="cyber">Cyber Azul</option>
+      <option value="shiny">Shiny Neón</option>
+      <option value="amber">Fuego Ámbar</option>
+      <option value="emerald">Esmeralda</option>
+      <option value="clean">Minimal Cristal</option>
+    </select>
+  </div>
+  <div class="row">
+    <span>Opacidad (<span id="uiOpacityVal">88</span>%)</span>
+    <input type="range" id="uiOpacity" min="50" max="100" step="2" />
+  </div>
+  <label class="row"><span>Modo Grabación (bloquear arrastre)</span><input type="checkbox" id="streamLock" /></label>
+
+  <button id="resetPos">Centrar paneles</button>
+
+  <div class="keys">
+    <strong>Atajos:</strong> Alt+K Teclas · Alt+H HUD · Alt+T Tipos · Alt+B Favoritos/Pity · Alt+S Crono · Alt+L Bloquear · Alt+C Centrar
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
